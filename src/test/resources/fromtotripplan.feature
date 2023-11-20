@@ -1,4 +1,5 @@
 Feature: Trip can be planned trough departure and destination fields
+
   Background:
     Given I open BudapestGO
     When I accept cookies
