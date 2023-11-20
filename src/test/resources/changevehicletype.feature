@@ -5,7 +5,8 @@ Feature: Route planning with fixed-track means of transport
     When I accept cookies
 
   Scenario: I would like to plan the trip by tram only
-    Given "departure location" field is filled
-    Given "destination location" field is filled
-    When I set only tram lines
-    Then I get only yellow(tram colored) routes
+    Given set departure location to "Bazilika"
+    And set destination location to "Nyugati"
+    And set only tram lines
+    When I plan the route
+    Then I get only tram routes
