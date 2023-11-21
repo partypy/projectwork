@@ -1,13 +1,12 @@
 package hu.masterfield.pages;
 
 import hu.masterfield.baseitems.BasePage;
-import hu.masterfield.locators.OpeningPageLocators;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class OpeningPage extends BasePage {
-    @FindBy(xpath = OpeningPageLocators.COOKIE_ACCEPT_BUTTON)
+    @FindBy(xpath = "//button[text()='Elfogadom']")
     WebElement acceptCookieButton;
 
     public OpeningPage(WebDriver driver) {
