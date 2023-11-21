@@ -1,21 +1,20 @@
 package hu.masterfield.pages;
 
+import hu.masterfield.baseitems.BasePage;
 import hu.masterfield.locators.OpeningPageLocators;
-import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.SelenideElement;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
-public class OpeningPage {
+public class OpeningPage extends BasePage {
+    @FindBy(xpath = OpeningPageLocators.COOKIE_ACCEPT_BUTTON)
+    WebElement acceptCookieButton;
 
-    SelenideElement acceptButton = Selenide.$x(OpeningPageLocators.COOKIE_ACCEPT_BUTTON);
-
-    public void clickOnAcceptButton() {
-        acceptButton.click();
+    public OpeningPage(WebDriver driver){
+        super(driver);
     }
 
-    public void isLoaded() {
-        acceptButton.shouldBe(Condition.visible).shouldBe(Condition.enabled);
-    }
+
 
 }
 
