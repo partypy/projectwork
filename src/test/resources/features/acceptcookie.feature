@@ -2,10 +2,10 @@ Feature: Cookies can be accepted
 
   Background:
     Given I open BudapestGO
-    Given the cookie popup window is active
+    And the cookie accept button is presented
 
   Scenario: Accept cookies
 
-    When I click on accept button
+    When I accept cookies
     Then cookie window disappears
 

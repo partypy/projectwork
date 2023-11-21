@@ -2,7 +2,7 @@ Feature: Languages can be changed on BudapestGO
 
   Background:
     Given I open BudapestGO website
-    When I accept cookies
+    And I accept cookies
 
   Scenario Outline: Change language
     Given the languages is set to "<defaultLanguage>"
