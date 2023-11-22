@@ -2,8 +2,9 @@ package hu.masterfield.steps;
 
 import hu.masterfield.browser.Settings;
 import hu.masterfield.pages.OpeningPage;
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
+import hu.masterfield.pages.TripPlanPage;
+import io.cucumber.java.AfterAll;
+import io.cucumber.java.BeforeAll;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -11,44 +12,46 @@ import io.cucumber.java.en.When;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
 public class BudapestGoSteps {
-    WebDriver driver;
-    OpeningPage openingPage;
+    protected static WebDriver driver;
+    protected static WebDriverWait wait;
+    private OpeningPage openingPage;
+    private TripPlanPage tripPlanPage;
 
-    @Before
-    public void openBrowser() {
+    @BeforeAll
+    public static void openBrowser() {
         driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        openingPage = new OpeningPage(this.driver);
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         driver.manage().window().maximize();
+    }
+
+    @AfterAll
+    public static void closeDriver() {
+        driver.quit();
     }
 
     @Given("I open BudapestGO")
     public void iOpenBudapestGO() {
         driver.get(Settings.BASE_URL);
-    }
+        openingPage = new OpeningPage(driver);
 
-    @And("the cookie accept button is presented")
-    public void theCookieAcceptButtonIsPresented() {
-        Assertions.assertTrue(openingPage.isPresented());
+        openingPage.isLoaded();
     }
 
     @When("I accept cookies")
     public void iAcceptCookies() {
-        openingPage.acceptCookies();
+        tripPlanPage = openingPage.acceptCookies();
     }
 
     @Then("cookie window disappears")
     public void cookieWindowDisappears() {
-        Assertions.assertFalse(openingPage.isPresented());
+
+        tripPlanPage.isLoaded();
     }
 
-    @After
-    public void closeDriver() {
-        driver.quit();
-    }
 
 }
