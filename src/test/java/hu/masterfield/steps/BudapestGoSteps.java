@@ -55,27 +55,27 @@ public class BudapestGoSteps {
     }
 
     @When("I set {string} into departure field")
-    public void iSetIntoDepartureField(String departure) throws InterruptedException {
+    public void iSetIntoDepartureField(String departure) {
         tripPlanPage.setDepartureLocation(departure);
-        Thread.sleep(2000);
+
     }
 
     @And("I set {string} into destination field")
-    public void iSetIntoDestinationField(String destination) throws InterruptedException {
+    public void iSetIntoDestinationField(String destination) {
         tripPlanPage.setDestinationLocation(destination);
-        Thread.sleep(2000);
+
     }
 
     @And("I plan the route")
-    public void iPlanTheRoute() throws InterruptedException {
+    public void iPlanTheRoute() {
         tripPlanResultPage = tripPlanPage.startPlanning();
-        Thread.sleep(2000);
+
     }
 
     @Then("I get the possible routes")
-    public void iGetThePossibleRoutes() throws InterruptedException {
+    public void iGetThePossibleRoutes() {
         tripPlanResultPage.isLoaded();
-        Thread.sleep(2000);
+
 
     }
 }
