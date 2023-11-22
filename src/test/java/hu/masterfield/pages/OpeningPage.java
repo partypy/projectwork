@@ -1,6 +1,7 @@
 package hu.masterfield.pages;
 
 import hu.masterfield.baseitems.BasePage;
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -18,13 +19,14 @@ public class OpeningPage extends BasePage {
 
     public TripPlanPage acceptCookies() {
         acceptCookieButton.click();
+        checkCookies();
         return new TripPlanPage(driver);
 
     }
 
-    public void getAllCookie() {
+    public void checkCookies() {
         Set<Cookie> cookies = driver.manage().getCookies();
-
+        Assertions.assertFalse(cookies.isEmpty());
     }
 
     public boolean isLoaded() {

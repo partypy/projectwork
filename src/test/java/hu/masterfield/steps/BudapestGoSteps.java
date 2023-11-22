@@ -38,13 +38,13 @@ public class BudapestGoSteps {
     public void iOpenBudapestGO() {
         driver.get(Settings.BASE_URL);
         openingPage = new OpeningPage(driver);
-
         openingPage.isLoaded();
     }
 
     @When("I accept cookies")
     public void iAcceptCookies() {
         tripPlanPage = openingPage.acceptCookies();
+
     }
 
     @Then("cookie window disappears")
