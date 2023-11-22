@@ -3,13 +3,13 @@ package hu.masterfield.steps;
 import hu.masterfield.browser.Settings;
 import hu.masterfield.pages.OpeningPage;
 import hu.masterfield.pages.TripPlanPage;
+import hu.masterfield.pages.TripPlanResultPage;
 import io.cucumber.java.AfterAll;
 import io.cucumber.java.BeforeAll;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -21,6 +21,7 @@ public class BudapestGoSteps {
     protected static WebDriverWait wait;
     private OpeningPage openingPage;
     private TripPlanPage tripPlanPage;
+    private TripPlanResultPage tripPlanResultPage;
 
     @BeforeAll
     public static void openBrowser() {
@@ -53,5 +54,28 @@ public class BudapestGoSteps {
         tripPlanPage.isLoaded();
     }
 
+    @When("I set {string} into departure field")
+    public void iSetIntoDepartureField(String departure) throws InterruptedException {
+        tripPlanPage.setDepartureLocation(departure);
+        Thread.sleep(2000);
+    }
 
+    @And("I set {string} into destination field")
+    public void iSetIntoDestinationField(String destination) throws InterruptedException {
+        tripPlanPage.setDestinationLocation(destination);
+        Thread.sleep(2000);
+    }
+
+    @And("I plan the route")
+    public void iPlanTheRoute() throws InterruptedException {
+        tripPlanResultPage = tripPlanPage.startPlanning();
+        Thread.sleep(2000);
+    }
+
+    @Then("I get the possible routes")
+    public void iGetThePossibleRoutes() throws InterruptedException {
+        tripPlanResultPage.isLoaded();
+        Thread.sleep(2000);
+
+    }
 }
