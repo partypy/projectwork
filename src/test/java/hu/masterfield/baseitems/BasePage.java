@@ -1,6 +1,7 @@
 package hu.masterfield.baseitems;
 
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -23,8 +24,8 @@ public class BasePage {
     public boolean isLoaded(WebElement element) {
         try {
             return wait.until(ExpectedConditions.visibilityOf(element)).isDisplayed();
-        } catch (NoSuchElementException e) {
-            throw new NoSuchElementException("There is no such element!");
+        } catch (TimeoutException e) {
+            throw new TimeoutException("There is no such element,check locators!");
         }
     }
 }
