@@ -88,12 +88,12 @@ public class BudapestGoSteps {
     public void setDestinationLocationTo(String destination) throws InterruptedException {
         tripPlanPage.setDestinationLocation(destination);
         Thread.sleep(3000);
-        // TODO: checkboxok lokátora, ellenőzés,hogy ki vagy be vannak-e kapcsolva
+
     }
 
     @And("set only tram lines")
     public void setOnlyTramLines() {
-
+// TODO: checkboxok lokátora, ellenőzés,hogy ki vagy be vannak-e kapcsolva
     }
 
     @Then("I get only tram routes")
