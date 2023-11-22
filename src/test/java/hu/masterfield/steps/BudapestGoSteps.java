@@ -78,4 +78,25 @@ public class BudapestGoSteps {
 
 
     }
+
+    @Given("set departure location to {string}")
+    public void setDepartureLocationTo(String departure) {
+        tripPlanPage.setDepartureLocation(departure);
+    }
+
+    @And("set destination location to {string}")
+    public void setDestinationLocationTo(String destination) throws InterruptedException {
+        tripPlanPage.setDestinationLocation(destination);
+        Thread.sleep(3000);
+        // TODO: checkboxok lokátora, ellenőzés,hogy ki vagy be vannak-e kapcsolva
+    }
+
+    @And("set only tram lines")
+    public void setOnlyTramLines() {
+
+    }
+
+    @Then("I get only tram routes")
+    public void iGetOnlyTramRoutes() {
+    }
 }

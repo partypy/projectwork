@@ -14,9 +14,11 @@ public class TripPlanPage extends BasePage {
     @FindBy(xpath = "//input[@class='planner-to ui-widget-content ui-corner-all ui-autocomplete-input']")
     WebElement destinationToInputField;
 
-
     @FindBy(xpath = "//input[@class='planner-button planner-plan ui-button ui-widget ui-state-default ui-corner-all']")
     WebElement planButton;
+
+    @FindBy(id = "ui-accordion-1-header-0")
+    WebElement planningOptionsButton;
 
     public TripPlanPage(WebDriver driver) {
         super(driver);
@@ -28,6 +30,10 @@ public class TripPlanPage extends BasePage {
 
     public void setDestinationLocation(String destination) {
         destinationToInputField.sendKeys(destination + Keys.TAB);
+    }
+
+    public void filterVelicheTypes() {
+        planningOptionsButton.click();
     }
 
     public TripPlanResultPage startPlanning() {
