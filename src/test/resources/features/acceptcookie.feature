@@ -1,3 +1,4 @@
+@runner
 Feature: Cookies can be accepted
 
   Background:

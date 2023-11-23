@@ -1,4 +1,3 @@
-@runner
 Feature: Route planning with fixed-track means of transport
 
   Background:

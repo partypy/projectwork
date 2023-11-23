@@ -43,7 +43,8 @@ public class BudapestGoSteps {
 
     @When("I accept cookies")
     public void iAcceptCookies() {
-        tripPlanPage = openingPage.acceptCookies();
+        openingPage.acceptCookies();
+        tripPlanPage = openingPage.checkCookies();
 
     }
 

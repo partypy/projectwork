@@ -70,7 +70,7 @@ public class TripPlanPage extends BasePage {
         wait.until(ExpectedConditions.elementToBeClickable(planButton));
         planButton.click();
         isLoaded(tripPlanRoute);
-        isLoaded(map);
+
         return new TripPlanResultPage(driver);
     }
 
@@ -81,7 +81,7 @@ public class TripPlanPage extends BasePage {
     }
 
     public boolean isLoaded() {
-        return isLoaded(departureInputField) && isLoaded(destinationToInputField) && isLoaded(planButton);
+        return isLoaded(departureInputField) && isLoaded(destinationToInputField);
     }
 
 

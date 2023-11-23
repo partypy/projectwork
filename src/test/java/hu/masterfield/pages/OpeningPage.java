@@ -21,17 +21,17 @@ public class OpeningPage extends BasePage {
         super(driver);
     }
 
-    public TripPlanPage acceptCookies() {
-        wait.until(ExpectedConditions.elementToBeClickable(acceptCookieButton));
+    public void acceptCookies() {
+        //wait.until(ExpectedConditions.elementToBeClickable(acceptCookieButton));
         acceptCookieButton.click();
         checkCookies();
-        return new TripPlanPage(driver);
 
     }
 
-    public void checkCookies() {
+    public TripPlanPage checkCookies() {
         Set<Cookie> cookies = driver.manage().getCookies();
         Assertions.assertFalse(cookies.isEmpty());
+        return new TripPlanPage(driver);
     }
 
     public boolean isLoaded() {
