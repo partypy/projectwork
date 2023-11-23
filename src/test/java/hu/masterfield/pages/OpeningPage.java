@@ -10,7 +10,7 @@ import org.openqa.selenium.support.FindBy;
 import java.util.Set;
 
 public class OpeningPage extends BasePage {
-    @FindBy(xpath = "//button[text()='Elfogadom']")
+    @FindBy(xpath = "//button[@class='root-0-2-9 contained-0-2-10 button-0-2-2']")
     WebElement acceptCookieButton;
 
     public OpeningPage(WebDriver driver) {

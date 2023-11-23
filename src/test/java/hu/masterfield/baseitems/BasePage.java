@@ -28,4 +28,6 @@ public class BasePage {
             throw new TimeoutException("There is no such element,check locators!");
         }
     }
+
+    
 }

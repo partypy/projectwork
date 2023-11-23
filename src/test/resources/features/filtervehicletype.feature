@@ -5,8 +5,5 @@ Feature: Route planning with fixed-track means of transport
     And I accept cookies
 
   Scenario: I would like to plan the trip by tram only
-    Given set departure location to "Bazilika"
-    And set destination location to "Nyugati Pályaudvar"
-    And set only tram lines
-    When I plan the route
+    When I plan route from "Budapest-Kelenföld" to "Nyugati Pályaudvar" only with tram
     Then I get only tram routes

@@ -6,7 +6,6 @@ import hu.masterfield.pages.TripPlanPage;
 import hu.masterfield.pages.TripPlanResultPage;
 import io.cucumber.java.AfterAll;
 import io.cucumber.java.BeforeAll;
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -50,53 +49,29 @@ public class BudapestGoSteps {
 
     @Then("cookie window disappears")
     public void cookieWindowDisappears() {
-
         tripPlanPage.isLoaded();
     }
 
-    @When("I set {string} into departure field")
-    public void iSetIntoDepartureField(String departure) {
-        tripPlanPage.setDepartureLocation(departure);
-
-    }
-
-    @And("I set {string} into destination field")
-    public void iSetIntoDestinationField(String destination) {
-        tripPlanPage.setDestinationLocation(destination);
-
-    }
-
-    @And("I plan the route")
-    public void iPlanTheRoute() {
-        tripPlanResultPage = tripPlanPage.startPlanning();
+    @When("I plan a trip from  {string} to {string}")
+    public void iPlanATripFromTo(String departure, String destination) {
+        tripPlanResultPage = tripPlanPage.fromToTripPlan(departure, destination);
 
     }
 
     @Then("I get the possible routes")
     public void iGetThePossibleRoutes() {
         tripPlanResultPage.isLoaded();
-
-
     }
 
-    @Given("set departure location to {string}")
-    public void setDepartureLocationTo(String departure) {
-        tripPlanPage.setDepartureLocation(departure);
-    }
-
-    @And("set destination location to {string}")
-    public void setDestinationLocationTo(String destination) throws InterruptedException {
-        tripPlanPage.setDestinationLocation(destination);
-        Thread.sleep(3000);
-
-    }
-
-    @And("set only tram lines")
-    public void setOnlyTramLines() {
-// TODO: checkboxok lokátora, ellenőzés,hogy ki vagy be vannak-e kapcsolva
+    @When("I plan route from {string} to {string} only with tram")
+    public void iPlanRouteFromToOnlyWithTram(String departure, String destination) throws InterruptedException {
+        tripPlanResultPage = tripPlanPage.filterVehicleTypes(departure, destination);
+        Thread.sleep(5000);
     }
 
     @Then("I get only tram routes")
     public void iGetOnlyTramRoutes() {
+
     }
+
 }

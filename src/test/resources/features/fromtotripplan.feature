@@ -5,7 +5,5 @@ Feature: Trip can be planned trough departure and destination fields
     And I accept cookies
 
   Scenario: Trip plan
-    When I set "Savoya Park" into departure field
-    And I set "Újpest-városkapu" into destination field
-    And I plan the route
+    When I plan a trip from  "Savoya Park" to "Újpest-városkapu"
     Then I get the possible routes
