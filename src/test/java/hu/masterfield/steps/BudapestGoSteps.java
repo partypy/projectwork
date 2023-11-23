@@ -4,7 +4,9 @@ import hu.masterfield.browser.Settings;
 import hu.masterfield.pages.OpeningPage;
 import hu.masterfield.pages.TripPlanPage;
 import hu.masterfield.pages.TripPlanResultPage;
+import io.cucumber.java.After;
 import io.cucumber.java.AfterAll;
+import io.cucumber.java.Before;
 import io.cucumber.java.BeforeAll;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -22,14 +24,14 @@ public class BudapestGoSteps {
     private TripPlanPage tripPlanPage;
     private TripPlanResultPage tripPlanResultPage;
 
-    @BeforeAll
+    @Before
     public static void openBrowser() {
         driver = new ChromeDriver();
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         driver.manage().window().maximize();
     }
 
-    @AfterAll
+    @After
     public static void closeDriver() {
         driver.quit();
     }

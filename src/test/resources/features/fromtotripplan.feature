@@ -1,3 +1,4 @@
+@runner
 Feature: Trip can be planned trough departure and destination fields
 
   Background:
