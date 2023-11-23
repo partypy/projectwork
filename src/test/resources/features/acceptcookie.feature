@@ -1,4 +1,3 @@
-@Runner1
 Feature: Cookies can be accepted
 
   Background:
