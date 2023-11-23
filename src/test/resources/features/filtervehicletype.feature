@@ -1,3 +1,4 @@
+@Runner2
 Feature: Route planning with fixed-track means of transport
 
   Background:
