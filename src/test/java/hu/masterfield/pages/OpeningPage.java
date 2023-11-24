@@ -22,7 +22,7 @@ public class OpeningPage extends BasePage {
     }
 
     public void acceptCookies() {
-        //wait.until(ExpectedConditions.elementToBeClickable(acceptCookieButton));
+        wait.until(ExpectedConditions.elementToBeClickable(acceptCookieButton));
         acceptCookieButton.click();
         checkCookies();
 
