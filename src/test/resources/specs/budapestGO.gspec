@@ -1,0 +1,9 @@
+@objects
+    logo        css     .logo-link.logo-link__web
+    panelbutton css     #panel-small-planner-button
+
+= Header =
+    logo:
+        width 240 to 260px
+        height 45 to 55px
+        above panelbutton

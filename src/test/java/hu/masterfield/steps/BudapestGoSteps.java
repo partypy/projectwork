@@ -5,9 +5,7 @@ import hu.masterfield.pages.OpeningPage;
 import hu.masterfield.pages.TripPlanPage;
 import hu.masterfield.pages.TripPlanResultPage;
 import io.cucumber.java.After;
-import io.cucumber.java.AfterAll;
 import io.cucumber.java.Before;
-import io.cucumber.java.BeforeAll;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -77,4 +75,23 @@ public class BudapestGoSteps {
 
     }
 
+    @Given("the languages is set to {string}")
+    public void theLanguagesIsSetTo(String arg0) {
+    }
+
+    @When("I change the language to {string}")
+    public void iChangeTheLanguageTo(String arg0) {
+    }
+
+    @Then("language is changed to {string}")
+    public void languageIsChangedTo(String arg0) {
+    }
+
+    @Given("I set into a searchbar a line number")
+    public void iSetIntoASearchbarALineNumber() {
+    }
+
+    @Then("I get the line details and schedule")
+    public void iGetTheLineDetailsAndSchedule() {
+    }
 }

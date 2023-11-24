@@ -1,7 +1,7 @@
 Feature: Languages can be changed on BudapestGO
 
   Background:
-    Given I open BudapestGO website
+    Given I open BudapestGO
     And I accept cookies
 
   Scenario Outline: Change language

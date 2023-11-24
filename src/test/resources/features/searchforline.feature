@@ -5,7 +5,5 @@ Feature: Search for specific line details and schedule
     And I accept cookies
 
   Scenario: Use the searchbar by line number
-    Given searchbar is available
-    When I enter the line name
-    And I select the desired line name
+    Given I set into a searchbar a line number
     Then I get the line details and schedule
