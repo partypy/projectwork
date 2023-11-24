@@ -49,6 +49,7 @@ public class BudapestGOLayoutTest {
         wait.until(ExpectedConditions.elementToBeClickable(planButton));
         planButton.click();
 
+
         List<String> tags = new ArrayList<>();
         LayoutReport report = Galen.checkLayout(driver, "/specs/budapestGO.gspec", tags);
         createReport(report);
