@@ -1,9 +1,17 @@
 @objects
-    logo        css     .logo-link.logo-link__web
-    panelbutton css     #panel-small-planner-button
+    logo            css     .logo-link.logo-link__web
+    panelbutton     css     #panel-small-planner-button
+    searchbutton    css     .searchbox.ui-widget-content.ui-corner-all.ui-autocomplete-input
+    toolbar         css     .noprint
+
 
 = Header =
     logo:
         width 240 to 260px
         height 45 to 55px
         above panelbutton
+        left-of searchbutton 10 to 20px
+
+    searchbutton:
+        inside toolbar
+
